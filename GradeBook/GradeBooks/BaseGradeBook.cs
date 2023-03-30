@@ -6,15 +6,19 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GradeBook.GradeBooks
 {
+    
     public class BaseGradeBook
     {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
 
-        public BaseGradeBook(string name)
+        public Type GradeBookType = typeof(GradeBookType);
+    
+    public BaseGradeBook(string name)
         {
             Name = name;
             Students = new List<Student>();
@@ -266,5 +270,9 @@ namespace GradeBook.GradeBooks
             
             return JsonConvert.DeserializeObject(json, gradebook);
         }
+    }
+    public class StandardGradeBook : BaseGradeBook
+    {
+        public StandardGradeBook(string name);
     }
 }
