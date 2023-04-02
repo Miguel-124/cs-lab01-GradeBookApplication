@@ -10,7 +10,7 @@ namespace GradeBook.GradeBooks
     {
         public RankedGradeBook(string name, bool isWeighted) :base(name, isWeighted)
         {
-            Type = Enums.GradeBookType.Standard;
+            Type = Enums.GradeBookType.Ranked;
         }
 
         public virtual char GetLetterGrade(double averageGrade)
